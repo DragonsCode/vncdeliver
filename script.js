@@ -6,13 +6,17 @@ function createDraggableVNCViewer() {
     iframe.src = 'https://a041-213-230-78-90.ngrok-free.app/vnc.html';
     iframe.width = '400';
     iframe.height = '300';
-    iframe.style.position = 'fixed';
+    // iframe.style.position = 'fixed';
     iframe.style.top = '50px';
     iframe.style.left = '50px';
-    iframe.style.border = '5px solid #ccc';
+    iframe.style.border = '1px solid #ccc';
+    iframe.style.borderTop = '5px';
     iframe.style.borderRadius = '5px';
     iframe.style.zIndex = '9999';
+    iframe.style.overflowY = 'auto';
+    iframe.style.overflowX = 'auto';
     iframe.style.resize = 'both';
+    iframe.style.position = 'relative';
     iframe.setAttribute('draggable', 'true');
 
     document.body.appendChild(iframe);
@@ -36,13 +40,6 @@ function createDraggableVNCViewer() {
         window.addEventListener('mousemove', moveIframe);
         window.addEventListener('mouseup', stopMoving);
     });
-
-    // Adjust scale of content inside the iframe
-    iframe.onload = function () {
-        var contentDoc = iframe.contentDocument || iframe.contentWindow.document;
-        contentDoc.body.style.transform = 'scale(0.8)'; // Adjust the scale value as needed
-        contentDoc.body.style.transformOrigin = 'top left';
-    };
 
     // Function to toggle iframe visibility on key combination (Ctrl + Shift + H)
     function toggleVisibility(event) {
