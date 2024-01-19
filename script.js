@@ -9,12 +9,10 @@ function createDraggableVNCViewer() {
     iframe.style.position = 'fixed';
     iframe.style.top = '50px';
     iframe.style.left = '50px';
-    iframe.style.border = '5px solid #ccc';
+    iframe.style.border = '1px solid #ccc';
     iframe.style.borderRadius = '5px';
     iframe.style.zIndex = '9999';
     iframe.setAttribute('draggable', 'true');
-    iframe.scrolling = 'no';
-    iframe.style.overflow = 'hidden';
 
     document.body.appendChild(iframe);
 
@@ -37,6 +35,13 @@ function createDraggableVNCViewer() {
         window.addEventListener('mousemove', moveIframe);
         window.addEventListener('mouseup', stopMoving);
     });
+
+    // Adjust scale of content inside the iframe
+    iframe.onload = function () {
+        var contentDoc = iframe.contentDocument || iframe.contentWindow.document;
+        contentDoc.body.style.transform = 'scale(0.8)'; // Adjust the scale value as needed
+        contentDoc.body.style.transformOrigin = 'top left';
+    };
 
     // Function to toggle iframe visibility on key combination (Ctrl + Shift + H)
     function toggleVisibility(event) {
