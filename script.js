@@ -6,7 +6,7 @@ function createDraggableVNCViewer() {
     iframe.src = 'https://a041-213-230-78-90.ngrok-free.app/vnc.html';
     iframe.width = '400';
     iframe.height = '300';
-    // iframe.style.position = 'fixed';
+    iframe.style.position = 'fixed';
     iframe.style.top = '50px';
     iframe.style.left = '50px';
     iframe.style.border = '1px solid #ccc';
@@ -16,7 +16,7 @@ function createDraggableVNCViewer() {
     iframe.style.overflowY = 'auto';
     iframe.style.overflowX = 'auto';
     iframe.style.resize = 'both';
-    iframe.style.position = 'relative';
+    // iframe.style.position = 'relative';
     iframe.setAttribute('draggable', 'true');
 
     document.body.appendChild(iframe);
