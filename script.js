@@ -2,20 +2,29 @@
 
 // Function to create a draggable iframe with noVNC viewer
 function createDraggableVNCViewer() {
+    // Create a new div element
+    var containerDiv = document.createElement('div');
+    containerDiv.style.position = 'relative';
+    containerDiv.style.overflowX = 'auto';
+    containerDiv.style.overflowY = 'auto';
+    containerDiv.style.resize = 'both';
+    containerDiv.style.top = '50px';
+    containerDiv.style.left = '50px';
+    containerDiv.style.zIndex = '9999';
+    containerDiv.style.cursor = 'move';
+
     var iframe = document.createElement('iframe');
     iframe.src = 'https://cleanly-devoted-adder.ngrok-free.app/vnc.html';
     iframe.width = '400';
     iframe.height = '300';
-    iframe.style.position = 'fixed';
-    iframe.style.top = '50px';
-    iframe.style.left = '50px';
-    iframe.style.border = '5px solid #ccc';
-    iframe.style.borderRadius = '5px';
-    iframe.style.resize = 'both';
-    iframe.style.zIndex = '9999';
+    iframe.style.border = 'none';
     iframe.setAttribute('draggable', 'true');
 
-    document.body.appendChild(iframe);
+    // Append the iframe to the new div element
+    containerDiv.appendChild(iframe);
+
+    // Append the new div element to the body
+    document.body.appendChild(containerDiv);
 
     // Make the iframe draggable
     iframe.addEventListener('mousedown', function (e) {
