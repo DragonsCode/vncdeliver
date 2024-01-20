@@ -9,7 +9,7 @@ function createDraggableVNCViewer() {
     iframe.style.position = 'fixed';
     iframe.style.top = '50px';
     iframe.style.left = '50px';
-    iframe.style.border = '5px solid #ccc';
+    iframe.style.borderTop = '5px solid #ccc';
     iframe.style.borderRadius = '5px';
     iframe.style.resize = 'both';
     iframe.style.zIndex = '9999';
