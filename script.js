@@ -5,6 +5,8 @@ function createDraggableVNCViewer() {
     // Create a new div element
     var containerDiv = document.createElement('div');
     containerDiv.style.borderTop = '5px solid #ccc';
+    containerDiv.style.width = '400px';
+    containerDiv.style.height = '300px';
     containerDiv.style.position = 'fixed';
     containerDiv.style.overflowX = 'auto';
     containerDiv.style.overflowY = 'auto';
@@ -12,12 +14,11 @@ function createDraggableVNCViewer() {
     containerDiv.style.top = '50px';
     containerDiv.style.left = '50px';
     containerDiv.style.zIndex = '9999';
-    containerDiv.style.cursor = 'move';
 
     var iframe = document.createElement('iframe');
     iframe.src = 'https://cleanly-devoted-adder.ngrok-free.app/vnc.html';
-    iframe.width = '400';
-    iframe.height = '300';
+    iframe.width = '100%';
+    iframe.height = '100%';
     iframe.style.border = 'none';
     iframe.setAttribute('draggable', 'true');
 
@@ -27,23 +28,22 @@ function createDraggableVNCViewer() {
     // Append the new div element to the body
     document.body.appendChild(containerDiv);
 
-    // Make the iframe draggable
-    iframe.addEventListener('mousedown', function (e) {
+    containerDiv.addEventListener('mousedown', function (e) {
         e.preventDefault();
-        var offsetX = e.clientX - iframe.getBoundingClientRect().left;
-        var offsetY = e.clientY - iframe.getBoundingClientRect().top;
+        var offsetX = e.clientX - containerDiv.getBoundingClientRect().left;
+        var offsetY = e.clientY - containerDiv.getBoundingClientRect().top;
 
-        function moveIframe(e) {
-            iframe.style.left = (e.clientX - offsetX) + 'px';
-            iframe.style.top = (e.clientY - offsetY) + 'px';
+        function moveContainerDiv(e) {
+            containerDiv.style.left = (e.clientX - offsetX) + 'px';
+            containerDiv.style.top = (e.clientY - offsetY) + 'px';
         }
 
         function stopMoving() {
-            window.removeEventListener('mousemove', moveIframe);
+            window.removeEventListener('mousemove', moveContainerDiv);
             window.removeEventListener('mouseup', stopMoving);
         }
 
-        window.addEventListener('mousemove', moveIframe);
+        window.addEventListener('mousemove', moveContainerDiv);
         window.addEventListener('mouseup', stopMoving);
     });
 
