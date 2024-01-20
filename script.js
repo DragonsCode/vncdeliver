@@ -4,7 +4,8 @@
 function createDraggableVNCViewer() {
     // Create a new div element
     var containerDiv = document.createElement('div');
-    containerDiv.style.position = 'relative';
+    containerDiv.style.borderTop = '5px solid #ccc';
+    containerDiv.style.position = 'fixed';
     containerDiv.style.overflowX = 'auto';
     containerDiv.style.overflowY = 'auto';
     containerDiv.style.resize = 'both';
