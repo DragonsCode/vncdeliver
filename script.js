@@ -13,8 +13,6 @@ function createDraggableVNCViewer() {
     iframe.style.borderTop = '5px solid #ccc';
     iframe.style.borderRadius = '5px';
     iframe.style.zIndex = '9999';
-    iframe.style.overflowY = 'auto';
-    iframe.style.overflowX = 'auto';
     iframe.style.resize = 'both';
     // iframe.style.position = 'relative';
     iframe.setAttribute('draggable', 'true');
