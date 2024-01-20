@@ -3,7 +3,7 @@
 // Function to create a draggable iframe with noVNC viewer
 function createDraggableVNCViewer() {
     var iframe = document.createElement('iframe');
-    iframe.src = 'https://a041-213-230-78-90.ngrok-free.app/vnc.html';
+    iframe.src = 'https://cleanly-devoted-adder.ngrok-free.app/vnc.html';
     iframe.width = '400';
     iframe.height = '300';
     iframe.style.position = 'fixed';
